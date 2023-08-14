@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "hello-reflex"
+version = "0.1.0"
+description = ""
+authors = ["becky2sawyer <becky2sawyer@gmail.com>"]
+readme = "README.md"
+packages = [{include = "hello_reflex"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+reflex = "^0.2.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
