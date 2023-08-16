@@ -2,20 +2,34 @@
 import reflex as rx
 
 
-def index() -> rx.Component:
-    return rx.container(
-        rx.box(
-            "What is Reflex?",
-            # The user's question is on the right.
-            text_align="right",
-        ),
-        rx.box(
-            "A way to build web apps in pure Python!",
-            # The answer is on the left.
-            text_align="left",
-        ),
-        rx.box("hi", text_align="center")
+def qa(question: str, answer: str) -> rx.Component:
+    return rx.box(
+        rx.box(question, text_align="rigth"),
+        rx.box(answer, text_align="left"),
+        margin_y="1em",
     )
+
+def chat() -> rx.component:
+    qa_pairs = [
+        (
+            "Reflex란 무엇입니까?",
+            "순수한 파이썬으로 웹 앱을 만드는 방법!",
+        ),
+        (
+            "그것으로 무엇을 만들 수 있을까요?",
+            "단순한 웹사이트에서 복잡한 웹 앱까지!",
+        )
+    ]
+    return rx.box(
+        *[
+            qa(question, answer)
+            for question, answer in qa_pairs
+        ]
+    )
+
+
+def index() -> rx.Component:
+    return rx.container(chat())
 
 
 # Add state and page to the app.
