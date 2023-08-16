@@ -1,11 +1,12 @@
 # chatapp.py
 import reflex as rx
+from chatapp import style
 
 
 def qa(question: str, answer: str) -> rx.Component:
     return rx.box(
-        rx.box(question, text_align="rigth"),
-        rx.box(answer, text_align="left"),
+        rx.box(question, text_align="right", style=style.question_style),
+        rx.box(answer, text_align="left", style=style.answer_style),
         margin_y="1em",
     )
 
@@ -31,8 +32,11 @@ def chat() -> rx.component:
 
 def action_bar() -> rx.Component:
     return rx.hstack(
-        rx.input(placeholder="질문을 던져라!"),
-        rx.button("질문 받아라 ~")
+        rx.input(
+            placeholder="질문을 던져라!",
+            style=style.input_style,
+        ),
+        rx.button("질문 받아라 ~", style=style.button_style)
     )
 
 
