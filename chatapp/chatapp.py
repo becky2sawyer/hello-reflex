@@ -1,6 +1,7 @@
 # chatapp.py
 import reflex as rx
 from chatapp import style
+from chatapp.state import State
 
 
 def qa(question: str, answer: str) -> rx.Component:
@@ -11,32 +12,27 @@ def qa(question: str, answer: str) -> rx.Component:
     )
 
 
-def chat() -> rx.component:
-    qa_pairs = [
-        (
-            "Reflex란 무엇입니까?",
-            "순수한 파이썬으로 웹 앱을 만드는 방법!",
-        ),
-        (
-            "그것으로 무엇을 만들 수 있을까요?",
-            "단순한 웹사이트에서 복잡한 웹 앱까지!",
-        )
-    ]
+def chat() -> rx.Component:
     return rx.box(
-        *[
-            qa(question, answer)
-            for question, answer in qa_pairs
-        ]
+        rx.foreach(
+            State.chat_history,
+            lambda messages: qa(messages[0], messages[1]),
+        )
     )
 
 
 def action_bar() -> rx.Component:
     return rx.hstack(
         rx.input(
-            placeholder="질문을 던져라!",
+            placeholder="Ask a question",
+            on_blur=State.set_question,
             style=style.input_style,
         ),
-        rx.button("질문 받아라 ~", style=style.button_style)
+        rx.button(
+            "Ask",
+            on_click=State.answer,
+            style=style.button_style,
+        ),
     )
 
 
