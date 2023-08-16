@@ -7,6 +7,6 @@ class HelloreflexConfig(rx.Config):
 
 config = HelloreflexConfig(
     app_name="chatapp",
-    frontend_port=3001,
-    backend_port=8001,
+    frontend_port=3000,
+    backend_port=8000,
 )
