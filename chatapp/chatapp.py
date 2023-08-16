@@ -1,13 +1,20 @@
 # chatapp.py
 import reflex as rx
+
 from chatapp import style
 from chatapp.state import State
 
 
 def qa(question: str, answer: str) -> rx.Component:
     return rx.box(
-        rx.box(question, text_align="right", style=style.question_style),
-        rx.box(answer, text_align="left", style=style.answer_style),
+        rx.box(
+            rx.text(question, text_align="right"),
+            style=style.question_style,
+        ),
+        rx.box(
+            rx.text(answer, text_align="left"),
+            style=style.answer_style,
+        ),
         margin_y="1em",
     )
 
@@ -24,6 +31,7 @@ def chat() -> rx.Component:
 def action_bar() -> rx.Component:
     return rx.hstack(
         rx.input(
+            id="question",
             placeholder="Ask a question",
             on_blur=State.set_question,
             style=style.input_style,
@@ -37,10 +45,12 @@ def action_bar() -> rx.Component:
 
 
 def index() -> rx.Component:
-    return rx.container(chat(), action_bar())
+    return rx.container(
+        chat(),
+        action_bar(),
+    )
 
 
-# Add state and page to the app.
 app = rx.App()
 app.add_page(index)
 app.compile()
