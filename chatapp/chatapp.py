@@ -9,6 +9,7 @@ def qa(question: str, answer: str) -> rx.Component:
         margin_y="1em",
     )
 
+
 def chat() -> rx.component:
     qa_pairs = [
         (
@@ -28,8 +29,15 @@ def chat() -> rx.component:
     )
 
 
+def action_bar() -> rx.Component:
+    return rx.hstack(
+        rx.input(placeholder="질문을 던져라!"),
+        rx.button("질문 받아라 ~")
+    )
+
+
 def index() -> rx.Component:
-    return rx.container(chat())
+    return rx.container(chat(), action_bar())
 
 
 # Add state and page to the app.
