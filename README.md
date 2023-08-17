@@ -26,8 +26,15 @@ $ reflex run --loglevel debug
 <img width="400" alt="image" src="https://github.com/becky2sawyer/hello-reflex/assets/10396850/ad01ae1d-fc4c-4441-97ff-a57bbc140006">
 
 #### v0.2.x LLM+
+![image](https://github.com/becky2sawyer/hello-reflex/assets/10396850/17d887e5-3767-4c2a-bfd5-4728eef5c846)
 - [ ] deploy try github pages
 - [ ] deploy try docker -> fly.io
+- [x] deploy aws ec2 & docker
+
+#### v0.3.x
+- [ ] deploy k82
+- [ ] Web Standard
+
 
 #### v1.0.0 J.A.R.V.I.S
 <img width="400" alt="image" src="https://www.diamandis.com/hubfs/iron_man_img.jpg">
