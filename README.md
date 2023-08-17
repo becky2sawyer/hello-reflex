@@ -10,7 +10,8 @@ $ reflex run --loglevel debug
 ```
 
 ### Build
-- docker build -t 0gpt:0.2.1 . & docker run -d -p 3000:3000 -p 8000:8000 --name 0gpt021 0gpt:0.2.1
+- docker build --build-arg API_URL http://xyz.i.com:8000 -t 0gpt:0.2.3 .
+- docker run -d -p 3000:3000 -p 8000:8000 --name 0gpt021 0gpt:0.2.3
 - fly deploy
 
 ### Ref
@@ -28,3 +29,12 @@ $ reflex run --loglevel debug
 
 #### v1.0.0 J.A.R.V.I.S
 <img width="400" alt="image" src="https://www.diamandis.com/hubfs/iron_man_img.jpg">
+
+
+### DEBUG
+```bash
+# Error: failed to fetch an image or build from source: error connecting to docker: failed building options: failed probing "personal": context deadline exceeded
+  - https://stackoverflow.com/questions/76400462/error-tunnel-unavailable-failed-probing-personal-context-deadline-exceeded
+  - fly wireguard websockets enable
+
+```

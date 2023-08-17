@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for 0gpt on 2023-08-17T13:05:12+09:00
+# fly.toml app configuration file generated for 0gtp on 2023-08-16T23:43:01+09:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -9,9 +9,6 @@ primary_region = "nrt"
 [build]
   dockerfile = "Dockerfile"
 
-[build.args]
-  API_URL = "https://0gpt.fly.dev:8000"
-
 [env]
   FIRST_APP_PORT = "3000"
   SECOND_APP_PORT = "8000"
@@ -21,5 +18,5 @@ primary_region = "nrt"
   force_https = true
   auto_stop_machines = true
   auto_start_machines = true
-  min_machines_running = 0
+  min_machines_running = 3
   processes = ["app"]
