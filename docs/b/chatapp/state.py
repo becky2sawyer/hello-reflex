@@ -6,7 +6,8 @@ import numpy as np
 import random
 
 
-# openai.api_key = os.environ["OPENAI_API_KEY"]
+openai.api_key = os.environ["OPENAI_API_KEY"]
+
 cat_meow_list = [
     "야옹",
     "meow",
@@ -24,8 +25,6 @@ cat_meow_list = [
     "เหมียว",
     "meo meo"
 ]
-
-word = ['공산전체주의 세력', '맹종', '자유', '한·미·일 3국 공조', '조작선동', '반국가세력', '일본은 파트너', '위장', '야비', '패륜']
 
 
 class State(rx.State):
@@ -48,15 +47,12 @@ class State(rx.State):
         #     stream=True,
         # )
 
-        meows = random.choices(cat_meow_list, k=2)
-        words = random.choices(word, k=3)
-        meows_words = meows + words
-        random.shuffle(meows_words)
-        answers = " ".join(meows_words)
+        answers = random.choices(cat_meow_list, k=1)
+
         self.chat_history.append((self.question, answers))
         self.chat_history[-1] = (
             self.question,
-            answers,
+            ",".join(answers),
         )
         yield
         # for item in session:
