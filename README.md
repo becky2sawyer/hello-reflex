@@ -10,8 +10,10 @@ $ reflex run --loglevel debug
 ```
 
 ### Build
-- docker build --build-arg API_URL http://xyz.i.com:8000 -t 0gpt:0.2.3 .
+- docker build --build-arg API_URL=http://xyz.i.com:8000 -t 0gpt:0.2.3 .
 - docker run -d -p 3000:3000 -p 8000:8000 --name 0gpt021 0gpt:0.2.3
+- docker build --platform linux/amd64 --build-arg API_URL=http://0gpt.diginori.com:8000 -t datamario24/0gpt:linux .
+- https://hub.docker.com/r/datamario24/0gpt
 - fly deploy
 
 ### Ref
