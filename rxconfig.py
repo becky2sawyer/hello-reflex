@@ -7,6 +7,7 @@ class HelloreflexConfig(rx.Config):
 
 config = HelloreflexConfig(
     app_name="chatapp",
-    api_url="https://0gpt.fly.dev",
+    api_url="http://0gpt.diginori.com:8000",
+    # api_url="http://0gpt.fly.dev:8000",
 
 )

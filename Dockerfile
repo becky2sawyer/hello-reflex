@@ -35,4 +35,8 @@ COPY --chown=reflex --from=init /app /app
 USER reflex
 ENV PATH="/app/.venv/bin:$PATH" API_URL=$API_URL
 
+
+EXPOSE 3000
+EXPOSE 8000
+
 CMD reflex db migrate && reflex run --env prod

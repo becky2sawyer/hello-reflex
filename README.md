@@ -9,6 +9,10 @@ $ reflex init
 $ reflex run --loglevel debug
 ```
 
+### Build
+- docker build -t 0gpt:0.2.1 . & docker run -d -p 3000:3000 -p 8000:8000 --name 0gpt021 0gpt:0.2.1
+- fly deploy
+
 ### Ref
 - https://platform.openai.com/account/api-keys
 - https://reflex.dev/docs/hosting/self-hosting/#self-hosting
